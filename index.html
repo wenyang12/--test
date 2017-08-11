@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@测试用例</title>
+    <link rel="stylesheet" href="jquery.atwho.css" type="text/css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="jquery.caret.js"></script>
+    <script src="jquery.atwho.js"></script>
+</head>
+<body>
+
+<div id="demo" contenteditable="true" style="border:1px solid #666; width:300px; height:300px;"></div>
+<button id="send">发送</button>
+
+<script type="text/javascript">
+    (function () {
+        // mock数据
+        var datas = [{
+            id: 12232,
+            name:"weny"
+        },{
+            id: 2343,
+            name:"hao"
+        },{
+            id: 234,
+            name:"weiguo"
+        },{
+            id: 676,
+            name:"beibei"
+        }];
+
+        // 数组去重方法
+        var ArrayUnique = function (arr) {
+            var obj = {},
+                result = [];
+            for (var i = 0, len = arr.length; i < len; i++) {
+                if (!obj[arr[i]]) {
+                    obj[arr[i]] = true;
+                    result.push(arr[i]);
+                }
+            }
+            return result;
+        }
+
+        // 启用at的主方法
+        $("#demo").atwhoEmail({
+            at: "@",                                                            
+            data: datas,
+            insertTpl: '@${name} ',         //插入的文案 其中里边的name 为替换为上边数据datas数组对象里的name属性指定的值
+            displayTpl: "<li>${name}</li>", //插入的列表
+            limit: 200                      //延迟多就出现联想列表
+        });
+        //获取id数组
+        document.getElementById('send').addEventListener('click', function(){
+            var atListNodes = $('.atwho-inserted');
+            var atList = []; // id数组
+            $.each(atListNodes, function(index,item){
+                atList.push($(item).attr('data-atwho-id'));
+            });
+            // 数组去重
+            atList = ArrayUnique(atList)
+            alert("获取到的id："+atList); 
+        })
+         
+    })();
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.atwho-view{width:190px;position:absolute;top:0;left:0;display:none;background:#fff;border-radius:2px;box-shadow:0 0 3px rgba(0,0,0,.25);z-index:100000;}
+.atwho-view .cur{background:#3487e2;color:#fff}
+.atwho-view .tip{padding: 10px;}
+.atwho-view strong{font-weight: 700;}
+.atwho-view ul{list-style:none;padding:0;margin:auto;overflow-y:auto;white-space:nowrap;width:100%;}
+.atwho-view ul li{display:block;padding:4px 10px;cursor:pointer;color:#666666;margin:0;text-overflow:ellipsis;overflow:hidden;white-space:nowrap;}
+.atwho-view small{font-size:smaller;color:#666666;font-weight:400}
+.atwho-view .atwho-view-title{
+    padding: 10px 10px 0;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+.atwho-view-ul {
+    padding: 0 0 10px;
+}
+a.atwho-inserted{color:#3487E2; text-decoration: none;}
